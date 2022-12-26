@@ -1,7 +1,8 @@
 package backend
 
 import (
-	"log" 
+	"log"
+
 	"github.com/pocketbase/pocketbase"
 )
 

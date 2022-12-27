@@ -8,6 +8,8 @@ module.exports = {
     parserOptions: {
         ecmaVersion: 13,
         sourceType: "module",
+        project: "./tsconfig.json",
+        tsconfigRootDir: "./",
     },
     plugins: ["@typescript-eslint", "prettier", "import"],
     rules: {
@@ -18,6 +20,7 @@ module.exports = {
     },
     settings: {
         "import/resolver": {
+            typescript: {},
             node: {
                 extensions: [".js", ".jsx", ".ts", ".tsx"],
             },

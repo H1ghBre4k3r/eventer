@@ -5,5 +5,10 @@
         /* Visit https://aka.ms/tsconfig.json to read more about this file */
         /* Completeness */
         "skipLibCheck": true /* Skip type checking all .d.ts files. */,
+        "moduleResolution": "node",               /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
+        "baseUrl": "./",                          /* Base directory to resolve non-absolute module names. */
+        "paths": {
+            "@eventer/*": ["src/*"],
+        },
     }
 }

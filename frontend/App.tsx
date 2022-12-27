@@ -1,31 +1,17 @@
 import React from "react";
-import { SafeAreaView, StatusBar, StyleSheet, Text, useColorScheme, View } from "react-native";
+import { SafeAreaView } from "react-native";
+
+import { AppContainer } from "@eventer/screens/AppContainer";
 
 export const App = () => {
-    const isDarkMode = useColorScheme() === "dark";
-
     const backgroundStyle = {
-        backgroundColor: isDarkMode ? "#000000" : "#ffffff",
+        backgroundColor: "#ffffff",
         flex: 1,
     };
 
     return (
         <SafeAreaView style={backgroundStyle}>
-            <StatusBar
-                barStyle={isDarkMode ? "light-content" : "dark-content"}
-                backgroundColor={backgroundStyle.backgroundColor}
-            />
-            <View style={[styles.container]}>
-                <Text>Hello, World!</Text>
-            </View>
+            <AppContainer />
         </SafeAreaView>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-    },
-});

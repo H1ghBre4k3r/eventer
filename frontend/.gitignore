@@ -64,3 +64,6 @@ buck-out/
 /vendor/bundle/
 
 .env*
+
+# Webpack
+dist/

@@ -1,6 +1,6 @@
-import { createDrawerNavigator } from "@react-navigation/drawer";
 import React, { FC } from "react";
 import { View, StyleSheet, Text, useWindowDimensions, SafeAreaView, StatusBar, useColorScheme } from "react-native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
 const Drawer = createDrawerNavigator();
 

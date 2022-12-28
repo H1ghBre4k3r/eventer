@@ -3,7 +3,7 @@ name: Build & Test Backend
 on: [push]
 
 jobs:
-  build_terminal_version:
+  build_backend:
     runs-on: ubuntu-latest
 
     steps:

@@ -24,3 +24,5 @@ bin/
 
 __pycache__/
 output
+
+pb_data

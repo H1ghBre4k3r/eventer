@@ -1,0 +1,16 @@
+name: Build Backend
+
+on: [push]
+
+jobs:
+  build_terminal_version:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Go environment
+        uses: actions/setup-go@v2.1.4
+        with:
+          go-version: "^1.19.4"
+      - name: Build Application
+        run: ./scripts/build.sh

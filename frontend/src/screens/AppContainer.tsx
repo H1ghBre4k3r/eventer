@@ -1,26 +1,48 @@
+import { createDrawerNavigator } from "@react-navigation/drawer";
 import React, { FC } from "react";
-import { SafeAreaView, StatusBar, useColorScheme, View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, useWindowDimensions, SafeAreaView, StatusBar, useColorScheme } from "react-native";
+
+const Drawer = createDrawerNavigator();
 
 export const AppContainer: FC = () => {
     const isDarkMode = useColorScheme() === "dark";
 
-    const backgroundStyle = {
-        backgroundColor: isDarkMode ? "#000000" : "#ffffff",
-        flex: 1,
-    };
+    const dimensions = useWindowDimensions();
+
+    const isLargeScreen = dimensions.width >= 1024;
 
     return (
         <>
-            <StatusBar
-                barStyle={isDarkMode ? "light-content" : "dark-content"}
-                backgroundColor={backgroundStyle.backgroundColor}
-            />
-            <View style={[styles.container]}>
-                <Text>Hello, World!</Text>
-            </View>
+            <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
+            <Drawer.Navigator
+                screenOptions={{
+                    drawerType: isLargeScreen ? "permanent" : undefined,
+                    header: Header,
+                }}>
+                <Drawer.Screen name="Main" component={MainView} />
+                <Drawer.Screen name="Second" component={SecondView} />
+            </Drawer.Navigator>
         </>
     );
 };
+
+const Header = () => <View />;
+
+const MainView = () => (
+    <SafeAreaView style={{ flex: 1 }}>
+        <View style={{ flex: 1 }}>
+            <Text>Main View</Text>
+        </View>
+    </SafeAreaView>
+);
+
+const SecondView = () => (
+    <SafeAreaView style={{ flex: 1 }}>
+        <View>
+            <Text>Second View</Text>
+        </View>
+    </SafeAreaView>
+);
 
 const styles = StyleSheet.create({
     container: {

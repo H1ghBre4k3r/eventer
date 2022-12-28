@@ -33,7 +33,7 @@ module.exports = {
                     loader: "babel-loader",
                     options: {
                         presets: ["module:metro-react-native-babel-preset"],
-                        plugins: ["react-native-web"],
+                        plugins: ["react-native-web", "@babel/plugin-proposal-export-namespace-from"],
                     },
                 },
             },

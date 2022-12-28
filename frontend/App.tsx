@@ -1,17 +1,10 @@
 import React from "react";
-import { SafeAreaView } from "react-native";
 
 import { AppContainer } from "@eventer/screens/AppContainer";
+import { NavigationContainer } from "@react-navigation/native";
 
-export const App = () => {
-    const backgroundStyle = {
-        backgroundColor: "#ffffff",
-        flex: 1,
-    };
-
-    return (
-        <SafeAreaView style={backgroundStyle}>
-            <AppContainer />
-        </SafeAreaView>
-    );
-};
+export const App = () => (
+    <NavigationContainer>
+        <AppContainer />
+    </NavigationContainer>
+);

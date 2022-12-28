@@ -7,7 +7,7 @@
         "ios": "react-native run-ios",
         "start": "react-native start",
         "test": "jest",
-        "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+        "lint": "eslint . --ext .ts,.tsx",
         "web": "cd web && webpack-dev-server --open",
         "build:web": "cd web && webpack",
         "typecheck": "tsc --noEmit",
@@ -55,13 +55,6 @@
     },
     "jest": {
         "preset": "react-native",
-        "moduleFileExtensions": [
-            "ts",
-            "tsx",
-            "js",
-            "jsx",
-            "json",
-            "node"
-        ]
+        "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
     }
 }

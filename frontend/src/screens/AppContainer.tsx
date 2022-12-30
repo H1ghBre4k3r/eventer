@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { View, StyleSheet, Text, useWindowDimensions, SafeAreaView, StatusBar, useColorScheme } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import { MainView } from "@eventer/screens/Main";
 
 const Drawer = createDrawerNavigator();
 
@@ -27,14 +28,6 @@ export const AppContainer: FC = () => {
 };
 
 const Header = () => <View />;
-
-const MainView = () => (
-    <SafeAreaView style={{ flex: 1 }}>
-        <View style={{ flex: 1 }}>
-            <Text>Main View</Text>
-        </View>
-    </SafeAreaView>
-);
 
 const SecondView = () => (
     <SafeAreaView style={{ flex: 1 }}>

@@ -1,7 +1,8 @@
 import React, { FC } from "react";
-import { View, StyleSheet, Text, useWindowDimensions, SafeAreaView, StatusBar, useColorScheme } from "react-native";
+import { View, Text, useWindowDimensions, SafeAreaView, StatusBar, useColorScheme } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { MainView } from "@eventer/screens/Main";
+import { Sidebar } from "@eventer/components/general/structure/Sidebar";
 
 const Drawer = createDrawerNavigator();
 
@@ -19,7 +20,9 @@ export const AppContainer: FC = () => {
                 screenOptions={{
                     drawerType: isLargeScreen ? "permanent" : undefined,
                     // header: Header,
-                }}>
+                }}
+                drawerContent={Sidebar}
+                defaultStatus="open">
                 <Drawer.Screen name="Main" component={MainView} />
                 <Drawer.Screen name="Second" component={SecondView} />
             </Drawer.Navigator>
@@ -36,11 +39,3 @@ const SecondView = () => (
         </View>
     </SafeAreaView>
 );
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-    },
-});

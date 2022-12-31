@@ -18,7 +18,7 @@ export const AppContainer: FC = () => {
             <Drawer.Navigator
                 screenOptions={{
                     drawerType: isLargeScreen ? "permanent" : undefined,
-                    header: Header,
+                    // header: Header,
                 }}>
                 <Drawer.Screen name="Main" component={MainView} />
                 <Drawer.Screen name="Second" component={SecondView} />

@@ -1,4 +1,4 @@
-FROM alpine:3.17
+FROM ubuntu:lunar
 LABEL org.opencontainers.image.source="https://github.com/H1ghBre4k3r/eventer"
 
 WORKDIR /app

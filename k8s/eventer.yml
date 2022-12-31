@@ -52,7 +52,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`eventer.pesca.dev`)
+    - match: Host(`eventer.lome.dev`)
       kind: Rule
       services:
         - name: eventer-service

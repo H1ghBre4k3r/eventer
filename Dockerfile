@@ -6,4 +6,4 @@ WORKDIR /app
 COPY ./bin/eventer /app/
 COPY ./frontend/dist /app/pb_public
 
-ENTRYPOINT [ "/app/eventer", "serve" ]
+ENTRYPOINT [ "/app/eventer", "serve", "--http=0.0.0.0:8090" ]

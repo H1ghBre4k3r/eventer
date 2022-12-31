@@ -15,4 +15,4 @@ jobs:
       - name: Run tests
         run: go test ./internal/...
       - name: Build Application
-        run: PATH="$PATH:$HOME/go/bin" ./scripts/build.sh
+        run: ./scripts/build.sh

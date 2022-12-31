@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: eventer-deployment
+  name: eventer-deployment
+  namespace: eventer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: eventer-deployment
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        io.kompose.service: eventer-deployment
+    spec:
+      containers:
+        - image: ghcr.io/h1ghbre4k3r/eventer
+          imagePullPolicy: Always
+          name: eventer-deployment
+          ports:
+            - containerPort: 8090
+          resources: {}
+      restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: eventer-service
+  name: eventer-service
+  namespace: eventer
+spec:
+  ports:
+    - protocol: TCP
+      name: web
+      port: 8090
+  selector:
+    io.kompose.service: eventer-deployment
+status:
+  loadBalancer: {}
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: eventer-ingress
+  namespace: eventer
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`eventer.pesca.dev`)
+      kind: Rule
+      services:
+        - name: eventer-service
+          port: 8090
+  tls:
+    certResolver: le

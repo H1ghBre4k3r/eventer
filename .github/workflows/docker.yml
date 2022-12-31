@@ -7,6 +7,8 @@ on:
       - Build & Test Backend
     types:
       - completed
+    branches:
+      - main
 
 jobs:
   publish-docker-image:
@@ -44,6 +46,12 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GH_PAT }}
+
+      - name: Set lower case owner name
+        run: |
+          echo "OWNER_LC=${OWNER,,}" >>${GITHUB_ENV}
+        env:
+          OWNER: "${{ github.repository_owner }}"
 
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v2

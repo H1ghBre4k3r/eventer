@@ -3,8 +3,7 @@ name: Docker
 on:
   workflow_run:
     workflows:
-      - Build & Test Frontend
-      - Build & Test Backend
+      - Build
     types:
       - completed
     branches:

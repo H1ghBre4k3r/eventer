@@ -9,7 +9,7 @@
         "test": "jest",
         "lint": "eslint . --ext .ts,.tsx",
         "web": "cd web && webpack-dev-server --open",
-        "build:web": "cd web && webpack",
+        "build:web": "rm -rf dist && cd web && webpack",
         "typecheck": "tsc --noEmit",
         "watch": "tsc -w --noEmit"
     },
@@ -63,6 +63,13 @@
     },
     "jest": {
         "preset": "react-native",
-        "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js",
+            "jsx",
+            "json",
+            "node"
+        ]
     }
 }

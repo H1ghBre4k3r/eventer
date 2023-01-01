@@ -1,3 +1,19 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    io.kompose.service: eventer-db-claim
+  name: eventer-db-claim
+  namespace: eventer
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      # TODO: Maybe increase this
+      storage: 2G
+status: {}
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -23,7 +39,14 @@ spec:
           ports:
             - containerPort: 8090
           resources: {}
+          volumeMounts:
+            - mountPath: /app/pb_data
+              name: eventer-db-claim
       restartPolicy: Always
+      volumes:
+        - name: eventer-db-claim
+          persistentVolumeClaim:
+            claimName: eventer-db-claim
 status: {}
 ---
 apiVersion: v1

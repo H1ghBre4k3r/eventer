@@ -47,3 +47,24 @@ jobs:
       - name: Run the tests
         run: npm test
         working-directory: ${{ env.frontend-dir }}
+
+  build_ios:
+    name: Build iOS App
+    runs-on: macos-11
+
+    env:
+      frontend-dir: ./frontend
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3.1.0
+        with:
+          node-version: 16.x
+          cache: "npm"
+      - name: Set up environment (dependencies, Xcode project)
+        run: scripts/setup --ios --ci
+        working-directory: ${{ env.frontend-dir }}
+      - name: Build the app
+        run: bundle exec fastlane build_only
+        working-directory: ${{ env.frontend-dir }}/ios

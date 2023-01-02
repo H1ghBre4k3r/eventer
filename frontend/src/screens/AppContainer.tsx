@@ -19,18 +19,14 @@ export const AppContainer: FC = () => {
             <Drawer.Navigator
                 screenOptions={{
                     drawerType: isLargeScreen ? "permanent" : undefined,
-                    // header: Header,
                 }}
-                drawerContent={Sidebar}
-                defaultStatus="open">
-                <Drawer.Screen name="Main" component={MainView} />
+                drawerContent={Sidebar}>
+                <Drawer.Screen name="overview" component={MainView} options={{ title: "Overview" }} />
                 <Drawer.Screen name="Second" component={SecondView} />
             </Drawer.Navigator>
         </>
     );
 };
-
-const Header = () => <View />;
 
 const SecondView = () => (
     <SafeAreaView style={{ flex: 1 }}>

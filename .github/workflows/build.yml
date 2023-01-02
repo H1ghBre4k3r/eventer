@@ -55,13 +55,16 @@ jobs:
     env:
       frontend-dir: ./frontend
 
+    strategy:
+      matrix:
+        node-version: [16.x]
+
     steps:
       - uses: actions/checkout@v3
       - name: Set up Node.js
         uses: actions/setup-node@v3.1.0
         with:
-          node-version: 16.x
-          cache: "npm"
+          node-version: ${{ matrix.node-version }}
       - name: Set up environment (dependencies, Xcode project)
         run: scripts/setup --ios --ci
         working-directory: ${{ env.frontend-dir }}

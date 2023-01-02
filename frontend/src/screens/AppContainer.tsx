@@ -5,11 +5,14 @@ import { MainView } from "@eventer/screens/Main";
 import { Sidebar } from "@eventer/components/general/structure/Sidebar";
 import { LoginView } from "@eventer/screens/auth/Login";
 import { useAuth } from "@eventer/hooks/useAuth";
+import { useStyle } from "@eventer/hooks/useStyle";
 
 const Drawer = createDrawerNavigator();
 
 export const AppContainer: FC = () => {
     const { loggedIn } = useAuth();
+    const { Text: TextStyle } = useStyle();
+
     const isDarkMode = useColorScheme() === "dark";
 
     const dimensions = useWindowDimensions();
@@ -22,7 +25,8 @@ export const AppContainer: FC = () => {
             {loggedIn ? (
                 <Drawer.Navigator
                     screenOptions={{
-                        drawerType: isLargeScreen ? "permanent" : undefined,
+                        drawerType: isLargeScreen ? "permanent" : "slide",
+                        drawerInactiveTintColor: TextStyle.colors.primary,
                     }}
                     drawerContent={Sidebar}>
                     <Drawer.Screen name="overview" component={MainView} options={{ title: "Overview" }} />

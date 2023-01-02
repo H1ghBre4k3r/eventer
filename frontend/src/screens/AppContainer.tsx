@@ -3,10 +3,13 @@ import { View, Text, useWindowDimensions, SafeAreaView, StatusBar, useColorSchem
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { MainView } from "@eventer/screens/Main";
 import { Sidebar } from "@eventer/components/general/structure/Sidebar";
+import { LoginView } from "@eventer/screens/auth/Login";
+import { useAuth } from "@eventer/hooks/useAuth";
 
 const Drawer = createDrawerNavigator();
 
 export const AppContainer: FC = () => {
+    const { loggedIn } = useAuth();
     const isDarkMode = useColorScheme() === "dark";
 
     const dimensions = useWindowDimensions();
@@ -16,14 +19,18 @@ export const AppContainer: FC = () => {
     return (
         <>
             <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
-            <Drawer.Navigator
-                screenOptions={{
-                    drawerType: isLargeScreen ? "permanent" : undefined,
-                }}
-                drawerContent={Sidebar}>
-                <Drawer.Screen name="overview" component={MainView} options={{ title: "Overview" }} />
-                <Drawer.Screen name="Second" component={SecondView} />
-            </Drawer.Navigator>
+            {loggedIn ? (
+                <Drawer.Navigator
+                    screenOptions={{
+                        drawerType: isLargeScreen ? "permanent" : undefined,
+                    }}
+                    drawerContent={Sidebar}>
+                    <Drawer.Screen name="overview" component={MainView} options={{ title: "Overview" }} />
+                    <Drawer.Screen name="Second" component={SecondView} />
+                </Drawer.Navigator>
+            ) : (
+                <LoginView />
+            )}
         </>
     );
 };

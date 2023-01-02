@@ -1,10 +1,13 @@
+import { useAuth } from "@eventer/hooks/useAuth";
 import { DrawerContentComponentProps, DrawerContentScrollView, DrawerItemList } from "@react-navigation/drawer";
 import React from "react";
-import { Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 import { useSidebarStyles } from "./Sidebar.style";
 
 export const Sidebar = (props: DrawerContentComponentProps) => {
     const { SidebarHeader, SidebarFooter } = useSidebarStyles();
+
+    const { logout } = useAuth();
 
     return (
         <>
@@ -15,7 +18,9 @@ export const Sidebar = (props: DrawerContentComponentProps) => {
                 <DrawerItemList {...props} />
             </DrawerContentScrollView>
             <View style={SidebarFooter}>
-                <Text>Settings</Text>
+                <Pressable onPress={() => logout()}>
+                    <Text>Logout</Text>
+                </Pressable>
             </View>
         </>
     );

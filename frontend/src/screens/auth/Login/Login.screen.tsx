@@ -1,12 +1,18 @@
+import { useAuth } from "@eventer/hooks/useAuth";
 import React from "react";
-import { Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
+import { useLoginScreenStyles } from "./Login.style";
 
 export const LoginView = () => {
-    const t = "";
+    const { LoginViewContainer } = useLoginScreenStyles();
+
+    const { login } = useAuth();
 
     return (
-        <View>
-            <Text>Login</Text>
+        <View style={LoginViewContainer}>
+            <Pressable onPress={() => login()}>
+                <Text>Login</Text>
+            </Pressable>
         </View>
     );
 };

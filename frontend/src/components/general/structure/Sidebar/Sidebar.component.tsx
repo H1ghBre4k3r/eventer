@@ -5,21 +5,21 @@ import { Pressable, Text, View } from "react-native";
 import { useSidebarStyles } from "./Sidebar.style";
 
 export const Sidebar = (props: DrawerContentComponentProps) => {
-    const { SidebarHeader, SidebarFooter } = useSidebarStyles();
+    const { SidebarContainer, SidebarHeader, SidebarFooter, SidebarText } = useSidebarStyles();
 
     const { logout } = useAuth();
 
     return (
         <>
-            <DrawerContentScrollView {...props}>
+            <DrawerContentScrollView {...props} style={[SidebarContainer]}>
                 <View style={SidebarHeader}>
-                    <Text>Header</Text>
+                    <Text style={[SidebarText]}>Header</Text>
                 </View>
                 <DrawerItemList {...props} />
             </DrawerContentScrollView>
             <View style={SidebarFooter}>
                 <Pressable onPress={() => logout()}>
-                    <Text>Logout</Text>
+                    <Text style={[SidebarText]}>Logout</Text>
                 </Pressable>
             </View>
         </>

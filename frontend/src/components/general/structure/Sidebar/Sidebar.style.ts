@@ -2,12 +2,15 @@ import { useStyle } from "@eventer/hooks/useStyle";
 import { StyleSheet } from "react-native";
 
 export const useSidebarStyles = () => {
-    const { Colors } = useStyle();
+    const { Colors, Content, Text } = useStyle();
 
-    // TODO: Introduce proper modules for styling etc.
+    const sidebarBackground = Content.background.bg1;
+
     return StyleSheet.create({
+        SidebarContainer: {
+            backgroundColor: sidebarBackground,
+        },
         SidebarHeader: {
-            backgroundColor: "#ff0000",
             padding: 20,
         },
         SidebarFooter: {
@@ -15,6 +18,10 @@ export const useSidebarStyles = () => {
             elevation: 1,
             borderTopColor: Colors.shades.light,
             borderTopWidth: 1,
+            backgroundColor: sidebarBackground,
+        },
+        SidebarText: {
+            color: Text.colors.primary,
         },
     });
 };

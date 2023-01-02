@@ -31,7 +31,7 @@
         "@babel/preset-react": "^7.18.6",
         "@babel/preset-typescript": "^7.18.6",
         "@babel/runtime": "^7.12.5",
-        "@react-native-community/eslint-config": "^2.0.0",
+        "@react-native-community/eslint-config": "^3.0.3",
         "@svgr/webpack": "^6.5.1",
         "@tsconfig/react-native": "^2.0.2",
         "@types/jest": "^26.0.23",

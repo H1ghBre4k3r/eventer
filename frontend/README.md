@@ -17,7 +17,7 @@ To bootstrap a development environment, run `scripts/setup --ios` or `scripts/se
 
 To run the application, you can now e.g. use `npm run ios` or `npm run android`, or directly run the project from Xcode, in case you develop for iOS.
 
-To build the application from the command line, you can use the provided build lanes with `fastlane`, or invoke `xcodebuild`/`gradle` directly. Refer to the [CI workflows](.github/workflows) for examples.
+To build the application from the command line, you can use the provided build lanes with `fastlane`, or invoke `xcodebuild`/`gradle` directly. Refer to the [CI workflows](../.github/workflows) for examples.
 
 For further instructions, check out [the official docs](https://reactnative.dev/docs/environment-setup).
 

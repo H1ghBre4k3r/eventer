@@ -15,6 +15,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: Set lower case owner name
+        run: |
+          echo "OWNER_LC=${OWNER,,}" >>${GITHUB_ENV}
+        env:
+          OWNER: "${{ github.repository_owner }}"
+
       - uses: azure/k8s-set-context@v2
         with:
           method: kubeconfig
@@ -23,5 +30,7 @@ jobs:
         with:
           manifests: |
             k8s/eventer.yml
+          images: |
+            ghcr.io/${{ env.OWNER_LC }}/eventer:${{ github.sha }}
           kubectl-version: "latest"
           namespace: eventer

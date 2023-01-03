@@ -40,7 +40,7 @@ jobs:
         working-directory: ${{ env.frontend-dir }}
 
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -53,8 +53,10 @@ jobs:
           OWNER: "${{ github.repository_owner }}"
 
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ env.OWNER_LC }}/eventer:latest
+          tags: |
+            ghcr.io/${{ env.OWNER_LC }}/eventer:latest
+            ghcr.io/${{ env.OWNER_LC }}/eventer:${{ github.sha }}

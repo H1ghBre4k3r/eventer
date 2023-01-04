@@ -1,15 +1,17 @@
 import { FormContextType } from "@eventer/api/Form";
-import React, { Context, PropsWithChildren, useState } from "react";
-import { KeyboardAvoidingView, Pressable, Text } from "react-native";
+import React, { Context, PropsWithChildren, ReactNode, useState } from "react";
 
 type FormContainerProps<T> = {
+    // Function to execute when this form gets submitted
     onSubmit?: (formData: T) => void;
-    submitText?: string;
+
+    // A function to render a submit button
+    submitButton?: (onPress: () => void) => ReactNode;
 };
 
 // Create a container for a form.
 export function createFormContainer<T>(FormContext: Context<FormContextType<T>>) {
-    return ({ children, onSubmit, submitText }: PropsWithChildren<FormContainerProps<T>>) => {
+    return ({ children, onSubmit, submitButton }: PropsWithChildren<FormContainerProps<T>>) => {
         // keep track of the values of all input fields within this form
         const [formValues, setFormValues] = useState<Partial<T>>({});
 
@@ -31,16 +33,7 @@ export function createFormContainer<T>(FormContext: Context<FormContextType<T>>)
         return (
             <FormContext.Provider value={{ updateInputValue, submit }}>
                 {children}
-                <Pressable onPress={submit}>
-                    <Text
-                        style={[
-                            {
-                                color: "#ffffff",
-                            },
-                        ]}>
-                        {submitText}
-                    </Text>
-                </Pressable>
+                {submitButton?.(submit)}
             </FormContext.Provider>
         );
     };

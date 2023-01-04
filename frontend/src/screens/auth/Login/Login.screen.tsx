@@ -1,3 +1,4 @@
+import { Button } from "@eventer/components/input/Button";
 import { createForm } from "@eventer/components/input/Form";
 import { useAuth } from "@eventer/hooks/useAuth";
 import React from "react";
@@ -24,7 +25,9 @@ export const LoginView = () => {
     return (
         <KeyboardAvoidingView style={LoginViewWrapper} behavior={Platform.OS === "ios" ? "padding" : "height"}>
             <ScrollView contentContainerStyle={LoginViewContainer} style={LoginViewBackground}>
-                <Form.Container onSubmit={onSubmit} submitText="Login">
+                <Form.Container
+                    onSubmit={onSubmit}
+                    submitButton={onPress => <Button onPress={onPress} label="Login" labelStyle={{ color: "#fff" }} />}>
                     <Form.Input name="username" placeholder="Username" label="Username" />
                     <Form.Input name="password" placeholder="Password" label="Password" />
                 </Form.Container>

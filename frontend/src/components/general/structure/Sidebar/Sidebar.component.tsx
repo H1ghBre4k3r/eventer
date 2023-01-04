@@ -10,8 +10,8 @@ export const Sidebar = (props: DrawerContentComponentProps) => {
     const { logout } = useAuth();
 
     return (
-        <>
-            <DrawerContentScrollView {...props} style={[SidebarContainer]}>
+        <View style={[SidebarContainer]}>
+            <DrawerContentScrollView {...props}>
                 <View style={SidebarHeader}>
                     <Text style={[SidebarText]}>Header</Text>
                 </View>
@@ -22,6 +22,6 @@ export const Sidebar = (props: DrawerContentComponentProps) => {
                     <Text style={[SidebarText]}>Logout</Text>
                 </Pressable>
             </View>
-        </>
+        </View>
     );
 };

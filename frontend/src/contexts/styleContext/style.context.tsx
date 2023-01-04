@@ -33,7 +33,7 @@ export const StyleContextProvider: React.FC<PropsWithChildren<StyleContextProvid
         Colors: createColors(styleProps),
         Text: createTextStyles(styleProps),
         Content: createContentStyles(styleProps),
-        Input: createInputStyles(),
+        Input: createInputStyles(styleProps),
     };
 
     return <StyleContext.Provider value={value}>{children}</StyleContext.Provider>;

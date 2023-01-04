@@ -41,7 +41,7 @@ type TextContentType =
     | "newPassword"
     | "oneTimeCode";
 
-type TextfieldProps = {
+export type TextfieldProps = {
     label?: string;
     placeholder?: string;
     secureTextEntry?: boolean;
@@ -70,7 +70,7 @@ export const Textfield: FC<TextfieldProps> = ({
 
     return (
         <View style={[TextfieldContainer]}>
-            <Text style={[TextfieldLabel, labelStyle]}>{label}</Text>
+            {label && <Text style={[TextfieldLabel, labelStyle]}>{label}</Text>}
             <TextInput
                 placeholder={placeholder}
                 style={[TextfieldInput, style]}

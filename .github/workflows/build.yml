@@ -65,6 +65,18 @@ jobs:
         uses: actions/setup-node@v3.1.0
         with:
           node-version: ${{ matrix.node-version }}
+
+      - name: Restore Pods cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ${{ env.frontend-dir }}/ios/Pods
+            ~/Library/Caches/CocoaPods
+            ~/.cocoapods
+          key: ${{ runner.os }}-pods-${{ hashFiles('${{ env.frontend-dir }}/ios/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+
       - name: Set up environment (dependencies, Xcode project)
         run: scripts/setup --ios --ci
         working-directory: ${{ env.frontend-dir }}

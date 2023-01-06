@@ -21,6 +21,7 @@ export const useSidebarStyles = () => {
         SidebarFooter: {
             alignItems: "center",
             paddingTop: 20,
+            paddingBottom: 20 - bottom,
             elevation: 1,
             borderTopColor: Colors.shades.light,
             borderTopWidth: 1,

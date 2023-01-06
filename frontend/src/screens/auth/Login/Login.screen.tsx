@@ -1,6 +1,7 @@
-import { Button } from "@eventer/components/input/Button";
-import { createForm } from "@eventer/components/input/Form";
+import { Button } from "@eventer/components/general/input/Button";
+import { createForm } from "@eventer/components/general/input/Form";
 import { useAuth } from "@eventer/hooks/useAuth";
+import { useStyle } from "@eventer/hooks/useStyle";
 import React from "react";
 import { KeyboardAvoidingView, Platform, ScrollView, View } from "react-native";
 import { useLoginScreenStyles } from "./Login.style";
@@ -13,6 +14,7 @@ type LoginFormData = {
 const Form = createForm<LoginFormData>();
 
 export const LoginView = () => {
+    const { Text } = useStyle();
     const { LoginViewWrapper, LoginViewContainer, LoginViewBackground } = useLoginScreenStyles();
 
     const { login } = useAuth();
@@ -27,7 +29,9 @@ export const LoginView = () => {
             <ScrollView contentContainerStyle={LoginViewContainer} style={LoginViewBackground}>
                 <Form.Container
                     onSubmit={onSubmit}
-                    submitButton={onPress => <Button onPress={onPress} label="Login" labelStyle={{ color: "#fff" }} />}>
+                    submitButton={onPress => (
+                        <Button onPress={onPress} label="Login" labelStyle={{ color: Text.colors.primary }} />
+                    )}>
                     <Form.Input name="username" placeholder="Username" label="Username" />
                     <Form.Input name="password" placeholder="Password" label="Password" />
                 </Form.Container>

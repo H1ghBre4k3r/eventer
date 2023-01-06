@@ -1,10 +1,9 @@
 import { LoginButton } from "@eventer/components/auth/login/LoginButton";
-import { Button } from "@eventer/components/general/input/Button";
 import { createForm } from "@eventer/components/general/input/Form";
+import { ViewBase } from "@eventer/components/general/structure/ViewBase";
 import { useAuth } from "@eventer/hooks/useAuth";
-import { useStyle } from "@eventer/hooks/useStyle";
 import React from "react";
-import { KeyboardAvoidingView, Platform, ScrollView, View } from "react-native";
+import { KeyboardAvoidingView, Platform, ScrollView } from "react-native";
 import { useLoginScreenStyles } from "./Login.style";
 
 type LoginFormData = {
@@ -15,8 +14,7 @@ type LoginFormData = {
 const Form = createForm<LoginFormData>();
 
 export const LoginView = () => {
-    const { Text } = useStyle();
-    const { LoginViewWrapper, LoginViewContainer, LoginViewBackground } = useLoginScreenStyles();
+    const { LoginViewWrapper, LoginViewContainer } = useLoginScreenStyles();
 
     const { login } = useAuth();
 
@@ -26,13 +24,15 @@ export const LoginView = () => {
     };
 
     return (
-        <KeyboardAvoidingView style={LoginViewWrapper} behavior={Platform.OS === "ios" ? "padding" : "height"}>
-            <ScrollView contentContainerStyle={LoginViewContainer} style={LoginViewBackground}>
-                <Form.Container onSubmit={onSubmit} submitButton={onPress => <LoginButton onPress={onPress} />}>
-                    <Form.Input name="username" placeholder="Username" label="Username" />
-                    <Form.Input name="password" placeholder="Password" label="Password" />
-                </Form.Container>
-            </ScrollView>
-        </KeyboardAvoidingView>
+        <ViewBase>
+            <KeyboardAvoidingView style={LoginViewWrapper} behavior={Platform.OS === "ios" ? "padding" : "height"}>
+                <ScrollView contentContainerStyle={LoginViewContainer}>
+                    <Form.Container onSubmit={onSubmit} submitButton={onPress => <LoginButton onPress={onPress} />}>
+                        <Form.Input name="username" placeholder="Username" label="Username" />
+                        <Form.Input name="password" placeholder="Password" label="Password" />
+                    </Form.Container>
+                </ScrollView>
+            </KeyboardAvoidingView>
+        </ViewBase>
     );
 };

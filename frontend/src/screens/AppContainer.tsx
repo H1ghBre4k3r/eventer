@@ -11,7 +11,7 @@ const Drawer = createDrawerNavigator();
 
 export const AppContainer: FC = () => {
     const { loggedIn } = useAuth();
-    const { Text: TextStyle } = useStyle();
+    const { Text: TextStyle, Content } = useStyle();
 
     const isDarkMode = useColorScheme() === "dark";
 
@@ -27,6 +27,12 @@ export const AppContainer: FC = () => {
                     screenOptions={{
                         drawerType: isLargeScreen ? "permanent" : "slide",
                         drawerInactiveTintColor: TextStyle.colors.primary,
+                        headerStyle: {
+                            backgroundColor: Content.background.bg1,
+                        },
+                        headerTitleStyle: {
+                            color: TextStyle.colors.primary,
+                        },
                     }}
                     drawerContent={Sidebar}>
                     <Drawer.Screen name="overview" component={MainView} options={{ title: "Overview" }} />

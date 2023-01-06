@@ -76,7 +76,7 @@ export const createColors = (_props?: StylingProps) => {
     // use a dark value as the base for the background in dark mode
     const dark = {
         background: {
-            base: 0x121212,
+            base: "#202329",
         },
     };
 

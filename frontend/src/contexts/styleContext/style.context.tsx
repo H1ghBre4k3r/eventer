@@ -1,3 +1,4 @@
+import { createButtonStyles } from "@eventer/styles/buttons";
 import { createColors } from "@eventer/styles/colors";
 import { createContentStyles } from "@eventer/styles/content";
 import { createInputStyles } from "@eventer/styles/input";
@@ -11,6 +12,7 @@ export type StyleContextType = {
     Text: ReturnType<typeof createTextStyles>;
     Content: ReturnType<typeof createContentStyles>;
     Input: ReturnType<typeof createInputStyles>;
+    Button: ReturnType<typeof createButtonStyles>;
 };
 
 export const StyleContext = React.createContext<StyleContextType>({
@@ -18,6 +20,7 @@ export const StyleContext = React.createContext<StyleContextType>({
     Text: createTextStyles(),
     Content: createContentStyles(),
     Input: createInputStyles(),
+    Button: createButtonStyles(),
 });
 
 type StyleContextProviderProps = unknown;
@@ -34,6 +37,7 @@ export const StyleContextProvider: React.FC<PropsWithChildren<StyleContextProvid
         Text: createTextStyles(styleProps),
         Content: createContentStyles(styleProps),
         Input: createInputStyles(styleProps),
+        Button: createButtonStyles(styleProps),
     };
 
     return <StyleContext.Provider value={value}>{children}</StyleContext.Provider>;

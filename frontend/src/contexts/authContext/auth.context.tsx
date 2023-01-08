@@ -1,39 +1,40 @@
 import { AuthContextType } from "@eventer/api/Auth";
-import React, { createContext, FC, PropsWithChildren, useState } from "react";
+import React, { createContext, FC, PropsWithChildren, useContext, useEffect, useState } from "react";
+import { PocketBaseContext } from "../pocketBaseContext";
 
-export const AuthContext = createContext<AuthContextType>({
-    loggedIn: false,
-    login() {
-        return new Promise(() => {
-            //
-        });
-    },
-    logout() {
-        return new Promise(() => {
-            //
-        });
-    },
-});
+export const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 
-export type AuthContextProviderProps = {
-    //
-};
+export const AuthContextProvider: FC<PropsWithChildren> = ({ children }) => {
+    const { pb } = useContext(PocketBaseContext);
 
-export const AuthContextProvider: FC<PropsWithChildren<AuthContextProviderProps>> = ({ children }) => {
-    const [loggedIn, setLoggedIn] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(!!pb?.authStore.isValid);
+
+    useEffect(() => {
+        pb?.collection("users")
+            .authRefresh()
+            .then(() => {
+                setLoggedIn(!!pb?.authStore.isValid);
+            })
+            .catch(console.log);
+    }, [pb]);
 
     const authContextState: AuthContextType = {
         loggedIn,
-        login() {
-            setLoggedIn(true);
-            return new Promise(() => {
-                //
+        login(username: string, password: string) {
+            return new Promise((resolve, reject) => {
+                pb?.collection("users")
+                    .authWithPassword(username, password)
+                    .then(() => {
+                        setLoggedIn(pb.authStore.isValid);
+                        resolve();
+                    })
+                    .catch(reject);
             });
         },
         logout() {
-            setLoggedIn(false);
             return new Promise(() => {
-                //
+                pb?.authStore.clear();
+                setLoggedIn(false);
             });
         },
     };

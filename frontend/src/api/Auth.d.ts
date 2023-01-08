@@ -1,7 +1,7 @@
 export type AuthContextType = {
     loggedIn: boolean;
 
-    login(): Promise<void>;
+    login(username: string, password: string): Promise<void>;
 
     logout(): Promise<void>;
 };

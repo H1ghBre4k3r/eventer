@@ -18,9 +18,9 @@ export const LoginView = () => {
 
     const { login } = useAuth();
 
-    const onSubmit = (formData: LoginFormData) => {
-        console.log(formData);
-        login();
+    const onSubmit = ({ username, password }: LoginFormData) => {
+        // TODO: Add error field for form
+        login(username, password).catch(console.error);
     };
 
     return (
@@ -29,7 +29,7 @@ export const LoginView = () => {
                 <ScrollView contentContainerStyle={LoginViewContainer}>
                     <Form.Container onSubmit={onSubmit} submitButton={onPress => <LoginButton onPress={onPress} />}>
                         <Form.Input name="username" placeholder="Username" label="Username" />
-                        <Form.Input name="password" placeholder="Password" label="Password" />
+                        <Form.Input name="password" placeholder="Password" label="Password" secureTextEntry />
                     </Form.Container>
                 </ScrollView>
             </KeyboardAvoidingView>

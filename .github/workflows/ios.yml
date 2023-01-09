@@ -24,7 +24,11 @@ jobs:
       - name: Restore Pods cache
         uses: actions/cache@v2
         with:
-          path: ${{ env.frontend-dir }}/.local_derived_data
+          path: |
+            ${{ env.frontend-dir }}/ios/Pods
+            ~/Library/Caches/CocoaPods
+            ~/.cocoapods 
+            ${{ env.frontend-dir }}/.local_derived_data
           key: ${{ runner.os }}-pods-derived-data-${{ hashFiles('frontend/ios/Podfile.lock') }}
 
       - name: Set up environment (dependencies, Xcode project)

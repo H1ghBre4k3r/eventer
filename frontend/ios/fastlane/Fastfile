@@ -67,10 +67,9 @@ platform :ios do
       # Step 2) Build only .xcodeproj 
       build_app(
         clean: false,
-        project: './ios/Eventer.xcodeproj',
+        project: 'Eventer.xcodeproj',
         scheme: scheme,
         configuration: build_configuration,
-        export_method: "ad-hoc",
         destination: 'generic/platform=iOS',
         export_options: {
           compileBitcode: false,
@@ -90,9 +89,8 @@ platform :ios do
       # Step 4) Build full app .xcworkspace
       build_app(
         scheme: "Eventer",
-        workspace: "./ios/Eventer.xcworkspace",
+        workspace: "Eventer.xcworkspace",
         derived_data_path: ios_derived_data_path,
-        export_method: "ad-hoc",
         configuration: build_configuration,
         clean: true
       )

@@ -65,17 +65,13 @@ platform :ios do
       end
 
       # Step 2) Build only .xcodeproj 
-      build_app(
+      gym(
         clean: false,
         project: 'Eventer.xcodeproj',
         scheme: scheme,
         configuration: build_configuration,
         destination: 'generic/platform=iOS',
-        export_options: {
-          compileBitcode: false,
-          uploadBitcode: false,
-          uploadSymbols: false 
-        },
+        sdk: "iphonesimulator",
         xcargs: [
             # Step 3) Provide paths where xcode can't find pods binaries
             "PODS_CONFIGURATION_BUILD_DIR=#{cache_folder}",
@@ -87,7 +83,7 @@ platform :ios do
     else
 
       # Step 4) Build full app .xcworkspace
-      build_app(
+      gym(
         scheme: "Eventer",
         workspace: "Eventer.xcworkspace",
         derived_data_path: ios_derived_data_path,

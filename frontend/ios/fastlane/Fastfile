@@ -66,7 +66,6 @@ platform :ios do
 
       # Step 2) Build only .xcodeproj 
       xcodebuild(
-        clean: false,
         project: 'Eventer.xcodeproj',
         scheme: scheme,
         configuration: build_configuration,
@@ -84,7 +83,6 @@ platform :ios do
 
       # Step 4) Build full app .xcworkspace
       xcodebuild(
-        clean: true,
         scheme: "Eventer",
         workspace: "Eventer.xcworkspace",
         derived_data_path: ios_derived_data_path,

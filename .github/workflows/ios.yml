@@ -25,7 +25,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ env.frontend-dir }}/.local_derived_data
-          key: ${{ runner.os }}-pods-derived-data-${{ hashFiles('${{ env.frontend-dir }}/ios/Podfile.lock') }}
+          key: ${{ runner.os }}-pods-derived-data-${{ hashFiles('frontend/ios/Podfile.lock') }}
 
       - name: Set up environment (dependencies, Xcode project)
         run: scripts/setup --ios --ci

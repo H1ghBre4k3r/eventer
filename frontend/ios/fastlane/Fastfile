@@ -65,7 +65,7 @@ platform :ios do
       end
 
       # Step 2) Build only .xcodeproj 
-      gym(
+      xcodebuild(
         clean: false,
         project: 'Eventer.xcodeproj',
         scheme: scheme,
@@ -83,7 +83,8 @@ platform :ios do
     else
 
       # Step 4) Build full app .xcworkspace
-      gym(
+      xcodebuild(
+        clean: true,
         scheme: "Eventer",
         workspace: "Eventer.xcworkspace",
         derived_data_path: ios_derived_data_path,

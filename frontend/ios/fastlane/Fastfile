@@ -54,14 +54,14 @@ platform :ios do
     # Step 5) Remove not a Pods binaries to reduce cache size
     require 'fileutils';
     dirs = [
-      File.expand_path("#{ios_derived_data_path}/info.plist"),
+    #  File.expand_path("#{ios_derived_data_path}/info.plist"),
       File.expand_path("#{ios_derived_data_path}/Logs"),
-      File.expand_path("#{ios_derived_data_path}/SourcePackages"),
-      File.expand_path("#{ios_derived_data_path}/ModuleCache.noindex"),
-      File.expand_path("#{ios_derived_data_path}/Build/Intermediates.noindex/ArchiveIntermediates/Eventer/IntermediateBuildFilesPath/Eventer.build"),
-      File.expand_path("#{ios_derived_data_path}/Build/Intermediates.noindex/ArchiveIntermediates/Eventer/IntermediateBuildFilesPath/XCBuildData"),
-      File.expand_path("#{ios_derived_data_path}/Build/Intermediates.noindex/ArchiveIntermediates/Eventer/BuildProductsPath/SwiftSupport"),
-      File.expand_path("#{ios_derived_data_path}/Build/Intermediates.noindex/ArchiveIntermediates/Eventer/PrecompiledHeaders")
+    #  File.expand_path("#{ios_derived_data_path}/SourcePackages"),
+    #  File.expand_path("#{ios_derived_data_path}/ModuleCache.noindex"),
+    #  File.expand_path("#{ios_derived_data_path}/Build/Intermediates.noindex/ArchiveIntermediates/Eventer/IntermediateBuildFilesPath/Eventer.build"),
+    #  File.expand_path("#{ios_derived_data_path}/Build/Intermediates.noindex/ArchiveIntermediates/Eventer/IntermediateBuildFilesPath/XCBuildData"),
+    #  File.expand_path("#{ios_derived_data_path}/Build/Intermediates.noindex/ArchiveIntermediates/Eventer/BuildProductsPath/SwiftSupport"),
+    #  File.expand_path("#{ios_derived_data_path}/Build/Intermediates.noindex/ArchiveIntermediates/Eventer/PrecompiledHeaders")
     ]
     dirs.each { |dir| FileUtils.rm_rf(dir) }
   end

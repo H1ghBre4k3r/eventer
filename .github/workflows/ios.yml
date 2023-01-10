@@ -28,7 +28,7 @@ jobs:
             ${{ env.frontend-dir }}/ios/Pods
             ~/Library/Caches/CocoaPods
             ~/.cocoapods 
-            ${{ env.frontend-dir }}/.local_derived_data
+            ${{ env.frontend-dir }}/ios/.local_derived_data
           key: ${{ runner.os }}-react-native-cache-${{ hashFiles('frontend/ios/Podfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-pods-and-derived-data-

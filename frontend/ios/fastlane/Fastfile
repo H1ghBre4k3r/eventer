@@ -69,6 +69,7 @@ platform :ios do
         project: 'Eventer.xcodeproj',
         scheme: scheme,
         configuration: build_configuration,
+        derivedDataPath: ios_derived_data_path,
         destination: 'generic/platform=iOS',
         sdk: "iphonesimulator",
         xcargs: [
@@ -85,7 +86,7 @@ platform :ios do
       xcodebuild(
         scheme: "Eventer",
         workspace: "Eventer.xcworkspace",
-        derived_data_path: ios_derived_data_path,
+        derivedDataPath: ios_derived_data_path,
         configuration: build_configuration,
         sdk: "iphonesimulator"
       )

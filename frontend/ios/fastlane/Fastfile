@@ -70,7 +70,6 @@ platform :ios do
         scheme: scheme,
         configuration: build_configuration,
         derivedDataPath: ios_derived_data_path,
-        destination: 'generic/platform=iOS',
         sdk: "iphonesimulator",
         xcargs: [
             # Step 3) Provide paths where xcode can't find pods binaries

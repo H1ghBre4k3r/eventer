@@ -47,7 +47,7 @@ platform :ios do
 
     # Step 0) Check if cache exists 
 
-    if(File.exist?(cache_folder))
+    if(File.exist?(cache_folder) && File.exists?(pods_configuration_build_dir))
       # Step 1) Apply a fix of "Copy Pods Resources" Build Phase
 
       # Before:

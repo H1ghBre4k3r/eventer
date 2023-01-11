@@ -8,17 +8,20 @@ export const AuthContextProvider: FC<PropsWithChildren> = ({ children }) => {
     const { pb } = useContext(PocketBaseContext);
 
     const [loggedIn, setLoggedIn] = useState(!!pb?.authStore.isValid);
+    const [isReady, setReady] = useState(false);
 
     useEffect(() => {
         pb?.collection("users")
             .authRefresh()
             .then(() => {
                 setLoggedIn(!!pb?.authStore.isValid);
+                setReady(true);
             })
             .catch(console.log);
     }, [pb]);
 
     const authContextState: AuthContextType = {
+        isReady,
         loggedIn,
         login(username: string, password: string) {
             return new Promise((resolve, reject) => {

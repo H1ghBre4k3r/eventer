@@ -10,7 +10,7 @@ import { useStyle } from "@eventer/hooks/useStyle";
 const Drawer = createDrawerNavigator();
 
 export const AppContainer: FC = () => {
-    const { loggedIn } = useAuth();
+    const { isReady, loggedIn } = useAuth();
     const { Text: TextStyle, Content } = useStyle();
 
     const isDarkMode = useColorScheme() === "dark";
@@ -19,6 +19,9 @@ export const AppContainer: FC = () => {
 
     const isLargeScreen = dimensions.width >= 1024;
 
+    if (!isReady) {
+        return <></>;
+    }
     return (
         <>
             <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />

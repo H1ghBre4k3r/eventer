@@ -17,6 +17,7 @@ export const PocketBaseContextProvider: FC<PropsWithChildren> = ({ children }) =
         <PocketBaseContext.Provider
             value={{
                 pb,
+                isReady: !!pb,
             }}>
             {children}
         </PocketBaseContext.Provider>

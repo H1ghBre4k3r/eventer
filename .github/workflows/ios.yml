@@ -31,7 +31,7 @@ jobs:
             ${{ env.frontend-dir }}/ios/.local_derived_data
           key: ${{ runner.os }}-eventer-cache-${{ hashFiles('frontend/ios/Podfile.lock') }}
           restore-keys: |
-            ${{ runner.os }}-pods-and-derived-data-
+            ${{ runner.os }}-eventer-cache-
 
       - name: Set up environment (dependencies, Xcode project)
         run: scripts/setup --ios --ci

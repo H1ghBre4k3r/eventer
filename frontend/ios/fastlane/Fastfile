@@ -60,7 +60,7 @@ platform :ios do
       # BUILT_PRODUCTS_DIR=/a/b/c "${PODS_ROOT}/Target Support Files/Pods-Eventer/Pods-Eventer-resources.sh"
 
       fastlane_require 'xcodeproj'
-      project = Xcodeproj::Project.open("../ios/Eventer.xcodeproj")
+      project = Xcodeproj::Project.open("../Eventer.xcodeproj")
       target = project.targets.select { |target| target.name == 'Eventer' }.first
       phase = target.shell_script_build_phases.select { |phase| phase.name && phase.name.include?('Copy Pods Resources') }.first
       if (!phase.shell_script.start_with?('BUILT_PRODUCTS_DIR'))

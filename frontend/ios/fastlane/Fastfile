@@ -48,10 +48,6 @@ platform :ios do
     # Step 0) Check if cache exists 
 
     if(File.exist?(cache_folder))
-      increment_build_number(
-        build_number: 1,
-        xcodeproj: "Eventer.xcodeproj"
-      )
       # Step 1) Apply a fix of "Copy Pods Resources" Build Phase
 
       # Before:

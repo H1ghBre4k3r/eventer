@@ -4,7 +4,7 @@ name: Eventer
 
 options:
     deploymentTarget:
-        iOS: "11.4"
+        iOS: "12.4"
     usesTabs: false
     tabWidth: 2
     indentWidth: 2

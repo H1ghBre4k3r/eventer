@@ -30,6 +30,7 @@ platform :ios do
     # !!! Path to the folder that you will cache on CI !!!
     ios_derived_data_path = File.expand_path("../.local_derived_data")
     cache_folder = File.expand_path("#{ios_derived_data_path}/Build/Intermediates.noindex/Pods.build/#{build_configuration}-iphonesimulator")
+    pods_configuration_build_dir = File.expand_path("#{ios_derived_data_path}/Build/Products/#{build_configuration}-iphonesimulator")
 
     # set version number to number from env vars
     increment_version_number(
@@ -77,7 +78,7 @@ platform :ios do
         sdk: "iphonesimulator",
         xcargs: [
             # Step 3) Provide paths where xcode can't find pods binaries
-            "PODS_CONFIGURATION_BUILD_DIR=#{cache_folder}",
+            "PODS_CONFIGURATION_BUILD_DIR=#{pods_configuration_build_dir}",
             "FRAMEWORK_SEARCH_PATHS='#{cache_folder} $(inherited)'",
             "LIBRARY_SEARCH_PATHS='#{cache_folder} $(inherited)'",
             "SWIFT_INCLUDE_PATHS=#{cache_folder}"

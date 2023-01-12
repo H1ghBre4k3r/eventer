@@ -15,9 +15,11 @@ export const AuthContextProvider: FC<PropsWithChildren> = ({ children }) => {
             .authRefresh()
             .then(() => {
                 setLoggedIn(!!pb?.authStore.isValid);
-                setReady(true);
             })
-            .catch(console.log);
+            .catch(console.log)
+            .finally(() => {
+                setReady(true);
+            });
     }, [pb]);
 
     const authContextState: AuthContextType = {

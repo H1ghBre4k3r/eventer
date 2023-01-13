@@ -6,12 +6,14 @@ import React, { createContext, FC, PropsWithChildren, useEffect, useState } from
 export const PocketBaseContext = createContext<PocketBaseContextType>({} as PocketBaseContextType);
 
 export const PocketBaseContextProvider: FC<PropsWithChildren> = ({ children }) => {
+    const [pbUrl, setPockerbaseUrl] = useState<string>("http://192.168.2.127:8090");
     const [pb, setPocketBase] = useState<Pockebase | undefined>();
 
     useEffect(() => {
+        // whenever our url updates, we need to update the Pocketbase instance aswell
         const asyncAuthStore = new AsyncAuthStore();
-        asyncAuthStore.init().then(() => setPocketBase(new Pockebase("https://eventer.lome.dev", asyncAuthStore)));
-    }, []);
+        asyncAuthStore.init().then(() => setPocketBase(new Pockebase(pbUrl, asyncAuthStore)));
+    }, [pbUrl]);
 
     return (
         <PocketBaseContext.Provider

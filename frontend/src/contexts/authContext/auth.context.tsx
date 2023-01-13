@@ -15,13 +15,14 @@ export const AuthContextProvider: FC<PropsWithChildren> = ({ children }) => {
             .authRefresh()
             .then(() => {
                 // if we are successful, we need to update the login state
-                setLoggedIn(!!pb?.authStore.isValid);
+                setLoggedIn(!!pb.authStore.isValid);
             })
             .catch(e => {
                 // eslint-disable-next-line no-console
                 console.log(e);
                 // if we failed, we need to update the login state accordingly
                 setLoggedIn(false);
+                pb.authStore.clear();
             })
             .finally(() => {
                 // after refreshing our auth state, we need to set the raedy flag for our UI to reload

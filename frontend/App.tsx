@@ -7,6 +7,7 @@ import { StorageContextProvider } from "@eventer/contexts/storageContext";
 import { AuthContextProvider } from "@eventer/contexts/authContext";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { PocketBaseContextProvider } from "@eventer/contexts/pocketBaseContext";
+import { UserContextProvider } from "@eventer/contexts/userContext";
 
 export const App = () => (
     <SafeAreaProvider>
@@ -14,9 +15,11 @@ export const App = () => (
             <StorageContextProvider>
                 <PocketBaseContextProvider>
                     <AuthContextProvider>
-                        <StyleContextProvider>
-                            <AppContainer />
-                        </StyleContextProvider>
+                        <UserContextProvider>
+                            <StyleContextProvider>
+                                <AppContainer />
+                            </StyleContextProvider>
+                        </UserContextProvider>
                     </AuthContextProvider>
                 </PocketBaseContextProvider>
             </StorageContextProvider>

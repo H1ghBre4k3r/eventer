@@ -14,10 +14,6 @@ export const useSidebarStyles = () => {
             backgroundColor: sidebarBackground,
             paddingBottom: bottom,
         },
-        SidebarHeader: {
-            backgroundColor: "#f00",
-            padding: 20,
-        },
         SidebarFooter: {
             alignItems: "center",
             paddingTop: 20,

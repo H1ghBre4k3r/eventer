@@ -6,13 +6,13 @@ import { SidebarHeader } from "../SidebarHeader";
 import { useSidebarStyles } from "./Sidebar.style";
 
 export const Sidebar = (props: DrawerContentComponentProps) => {
-    const { SidebarContainer, SidebarFooter, SidebarText } = useSidebarStyles();
+    const { SidebarContainer, SidebarScrollContainer, SidebarFooter, SidebarText } = useSidebarStyles();
 
     const { logout } = useAuth();
 
     return (
         <View style={[SidebarContainer]}>
-            <DrawerContentScrollView {...props}>
+            <DrawerContentScrollView {...props} contentContainerStyle={SidebarScrollContainer}>
                 <SidebarHeader />
                 <DrawerItemList {...props} />
             </DrawerContentScrollView>

@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export const useSidebarStyles = () => {
-    const { bottom } = useSafeAreaInsets();
+    const { bottom, top } = useSafeAreaInsets();
     const { Colors, Content, Text } = useStyle();
 
     const sidebarBackground = Content.background.bg1;
@@ -13,6 +13,10 @@ export const useSidebarStyles = () => {
             flex: 1,
             backgroundColor: sidebarBackground,
             paddingBottom: bottom,
+            paddingTop: top,
+        },
+        SidebarScrollContainer: {
+            paddingTop: 0,
         },
         SidebarFooter: {
             alignItems: "center",

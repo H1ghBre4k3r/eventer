@@ -1,11 +1,11 @@
 import { AuthContextType } from "@eventer/api/Auth";
-import React, { createContext, FC, PropsWithChildren, useContext, useEffect, useState } from "react";
-import { PocketBaseContext } from "../pocketBaseContext";
+import { usePocketbase } from "@eventer/hooks/usePocketbase";
+import React, { createContext, FC, PropsWithChildren, useEffect, useState } from "react";
 
 export const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 
 export const AuthContextProvider: FC<PropsWithChildren> = ({ children }) => {
-    const { pb } = useContext(PocketBaseContext);
+    const { pb } = usePocketbase();
 
     const [loggedIn, setLoggedIn] = useState(!!pb?.authStore.isValid);
     const [isReady, setReady] = useState(false);

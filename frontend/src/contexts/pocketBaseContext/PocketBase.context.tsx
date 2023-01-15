@@ -5,6 +5,7 @@ import React, { createContext, FC, PropsWithChildren, useEffect, useState } from
 
 export const PocketBaseContext = createContext<PocketBaseContextType>({} as PocketBaseContextType);
 
+// TODO: Change type uf authStore.model to Eventer.User by default
 export const PocketBaseContextProvider: FC<PropsWithChildren> = ({ children }) => {
     const [pbUrl, setPockerbaseUrl] = useState<string>("https://eventer.lome.dev");
     const [pb, setPocketBase] = useState<Pockebase | undefined>();

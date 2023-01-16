@@ -39,7 +39,6 @@ export const AppContainer: FC = () => {
                     }}
                     drawerContent={Sidebar}>
                     <Drawer.Screen name="overview" component={MainView} options={{ title: "Overview" }} />
-                    <Drawer.Screen name="Second" component={SecondView} />
                 </Drawer.Navigator>
             ) : (
                 <LoginView />
@@ -47,11 +46,3 @@ export const AppContainer: FC = () => {
         </>
     );
 };
-
-const SecondView = () => (
-    <SafeAreaView style={{ flex: 1 }}>
-        <View>
-            <Text>Second View</Text>
-        </View>
-    </SafeAreaView>
-);

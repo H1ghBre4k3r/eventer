@@ -3787,9 +3787,9 @@ eslint-config-prettier@^8.5.0, eslint-config-prettier@^8.6.0:
   version "8.6.0"
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.6.0.tgz#dec1d29ab728f4fa63061774e1672ac4e363d207"
 
-eslint-import-resolver-typescript@^3.5.2:
-  version "3.5.2"
-  resolved "https://registry.npmjs.org/eslint-import-resolver-typescript/-/eslint-import-resolver-typescript-3.5.2.tgz"
+eslint-import-resolver-typescript@^3.5.3:
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/eslint-import-resolver-typescript/-/eslint-import-resolver-typescript-3.5.3.tgz#db5ed9e906651b7a59dd84870aaef0e78c663a05"
   dependencies:
     debug "^4.3.4"
     enhanced-resolve "^5.10.0"

@@ -6669,9 +6669,9 @@ pkg-up@^3.1.0:
   dependencies:
     find-up "^3.0.0"
 
-pocketbase@^0.10.0:
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/pocketbase/-/pocketbase-0.10.0.tgz#958f1b127a7050f8d4d92c72843578b1a797e418"
+pocketbase@^0.10.1:
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/pocketbase/-/pocketbase-0.10.1.tgz#01963c61544b1bcd8db7d3e9d43d4a99dd76f630"
 
 posix-character-classes@^0.1.0:
   version "0.1.1"

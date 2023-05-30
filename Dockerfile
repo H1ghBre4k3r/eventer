@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM golang:1.20.4-bullseye AS builder
+FROM golang:1.20.4-bullseye AS builder
 
 WORKDIR /opt/eventer
 COPY cmd cmd 

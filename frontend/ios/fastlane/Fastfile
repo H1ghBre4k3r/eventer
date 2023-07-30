@@ -124,7 +124,10 @@ platform :ios do
     )
 
     # build and upload app
-    build_app(scheme: "Eventer")
+    build_app(
+      scheme: "Eventer",
+      sdk: "iOS 16.1"
+    )
     upload_to_testflight
   end
 end

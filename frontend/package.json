@@ -36,7 +36,7 @@
         "@react-native-community/eslint-config": "^3.2.0",
         "@react-native/eslint-config": "^0.72.2",
         "@react-native/metro-config": "^0.72.11",
-        "@svgr/webpack": "^8.0.1",
+        "@svgr/webpack": "^8.1.0",
         "@tsconfig/react-native": "^3.0.2",
         "@types/jest": "^29.5.3",
         "@types/react": "^18.2.20",

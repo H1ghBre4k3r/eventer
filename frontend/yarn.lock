@@ -3498,10 +3498,10 @@ babel-plugin-polyfill-regenerator@^0.5.5:
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.5.0"
 
-babel-plugin-react-native-web@^0.19.9:
-  version "0.19.9"
-  resolved "https://registry.yarnpkg.com/babel-plugin-react-native-web/-/babel-plugin-react-native-web-0.19.9.tgz#19c7f15f1c5ee73f603997981e3dd9c29f74faf6"
-  integrity sha512-yGimFBeeImDIyu75mEQcmuUoKFZrcEaScCHGsETZ/vcqVBPrnlDw2p9ZJg2/zoTu4BRMqgrpvkCRuG7AHFBiHw==
+babel-plugin-react-native-web@^0.19.11:
+  version "0.19.11"
+  resolved "https://registry.yarnpkg.com/babel-plugin-react-native-web/-/babel-plugin-react-native-web-0.19.11.tgz#32316f51de0053bba6815f6522bf7b17c483bf17"
+  integrity sha512-0sHf8GgDhsRZxGwlwHHdfL3U8wImFaLw4haEa60U9M3EiO3bg6u3BJ+1vXhwgrevqSq76rMb5j1HJs+dNvMj5g==
 
 babel-plugin-react-transform@^3.0.0:
   version "3.0.0"

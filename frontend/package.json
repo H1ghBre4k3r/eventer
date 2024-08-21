@@ -19,7 +19,7 @@
         "@react-navigation/native": "^6.1.9",
         "pocketbase": "^0.16.0",
         "react": "18.2.0",
-        "react-native": "0.72.6",
+        "react-native": "0.75.2",
         "react-native-gesture-handler": "^2.14.0",
         "react-native-reanimated": "^3.6.1",
         "react-native-safe-area-context": "^4.7.4",

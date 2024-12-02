@@ -17,7 +17,7 @@
         "@react-native-async-storage/async-storage": "^1.22.3",
         "@react-navigation/drawer": "^6.6.11",
         "@react-navigation/native": "^6.1.9",
-        "pocketbase": "^0.16.0",
+        "pocketbase": "^0.22.1",
         "react": "18.2.0",
         "react-native": "0.72.6",
         "react-native-gesture-handler": "^2.14.0",

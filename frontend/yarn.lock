@@ -8374,10 +8374,10 @@ pkg-up@^3.1.0:
   dependencies:
     find-up "^3.0.0"
 
-pocketbase@^0.16.0:
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/pocketbase/-/pocketbase-0.16.0.tgz#156c05a26b126b97a202b7173e9c1544f090eff1"
-  integrity sha512-sndPu4Mbu1Y2VefvO2gIa/No5aIdP6E5br9HUGomvDYSfkmGfBxJNkivJSSKlr9KwWnaF8otf14304UUeFGOrA==
+pocketbase@^0.25.0:
+  version "0.25.0"
+  resolved "https://registry.yarnpkg.com/pocketbase/-/pocketbase-0.25.0.tgz#d5947025943473dfed234532bd354ef6264d70c5"
+  integrity sha512-xbjiQG/tnh2HsjZrTW7ZEJASvl4hmGAB5PQAmNRkRU8BmrPib7zwKyXdiYJl34QN7ADpqykZD2lAMdDtrrQbuw==
 
 postcss-value-parser@^4.2.0:
   version "4.2.0"
